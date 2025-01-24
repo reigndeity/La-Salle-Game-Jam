@@ -7,10 +7,6 @@ public class EnemyMovement : MonoBehaviour
     public float speed;
     public GameObject target;
 
-    private void Start()
-    {
-        target = GameObject.FindGameObjectWithTag("Player");
-    }
     private void Update()
     {
         if (target != null)

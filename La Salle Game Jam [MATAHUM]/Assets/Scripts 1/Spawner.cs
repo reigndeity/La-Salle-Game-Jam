@@ -27,27 +27,38 @@ public class Spawner : MonoBehaviour
 
     IEnumerator Spawn()
     {
-        if(canSpawn)
+        if (canSpawn)
         {
             canSpawn = false;
             yield return new WaitForSeconds(spawnTime);
 
             int randomPoints = Random.Range(0, spawnPoints.Length);
-            GameObject spawned = Instantiate(enemyPrefab[0], spawnPoints[randomPoints].transform.position, Quaternion.identity, this.transform);
-            EnemyMovement enemyMovement = spawned.GetComponent<EnemyMovement>();
 
+            // Spawn the enemy
+            GameObject spawned = Instantiate(enemyPrefab[0], spawnPoints[randomPoints].transform.position, Quaternion.identity, this.transform);
+            
+            // Assign the corresponding endpoint as the target
+            EnemyMovement enemyMovement = spawned.GetComponent<EnemyMovement>();
+            if (enemyMovement != null)
+            {
+                enemyMovement.target = endPoints[randomPoints]; // Set the endpoint as the target
+            }
+
+            // Adjust speed and spawn time
             speedMultiplier += 0.01f;
             enemyMovement.speed += speedMultiplier;
             if (enemyMovement.speed >= 5) enemyMovement.speed = 5f;
 
             spawnTime -= 0.01f;
-            if(spawnTime <= 1) spawnTime = 1;
+            if (spawnTime <= 1) spawnTime = 1;
+
             difficultyCounter++;
             if (difficultyCounter % 10 == 0)
             {
                 difficultyLevel++;
-                if (difficultyLevel >= 3) difficultyCounter = 3;
+                if (difficultyLevel >= 3) difficultyLevel = 3;
             }
+
             canSpawn = true;
         }
     }

@@ -13,7 +13,6 @@ public class GunController : MonoBehaviour
     public string bubbleSequence = ""; // Stores the sequence of key presses
     private int maxLength = 3;
 
-
     void Update()
     {
         if (Input.GetMouseButtonDown(0) && isSelectBubble == true)
