@@ -219,7 +219,7 @@ GameObject:
   - component: {fileID: 7076856308166330214}
   m_Layer: 0
   m_Name: Enemy Object
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -371,9 +371,10 @@ MonoBehaviour:
   brown: 0
   purple: 0
   flavors:
-  - {fileID: 854280015008457232, guid: bb5db025c81d73e429ca2e7fb0105dda, type: 3}
-  - {fileID: 2840693351763650916, guid: 9833e6b6727fbf642bb7ea6e8c75ed5e, type: 3}
-  - {fileID: 4916623937373874534, guid: 7f50008186fdd2443ae86864373a8fa8, type: 3}
-  - {fileID: 1242387510280237562, guid: 7bd89e2ff067b8d4292582ea77ef40e9, type: 3}
+  - {fileID: 854280015008457232, guid: b66f2bfe896a56d458c227eac6c8f18e, type: 3}
+  - {fileID: 2840693351763650916, guid: a30e8b11905ba724ab2430af6aab1d0c, type: 3}
+  - {fileID: 4916623937373874534, guid: f7aa2d4ceb246b140832e1b9ea09bf43, type: 3}
+  - {fileID: 1242387510280237562, guid: 63a3ca114bdc693468e02b36d146e922, type: 3}
   flavorHolder: {fileID: 2727928531600844664}
+  enemySequence: 
   ingr_PopUp: {fileID: 3448143932396780200}

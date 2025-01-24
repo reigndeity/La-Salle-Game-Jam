@@ -11,7 +11,7 @@ public class EnemyMovement : MonoBehaviour
     }
     private void Update()
     {
-        transform.Translate(Vector3.forward * speed * Time.deltaTime);
+        transform.Translate(Vector3.forward * -speed * Time.deltaTime);
     }
 
     private void OnCollisionEnter(Collision collision)

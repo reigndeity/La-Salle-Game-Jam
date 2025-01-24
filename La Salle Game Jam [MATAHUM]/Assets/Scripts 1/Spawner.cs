@@ -31,7 +31,7 @@ public class Spawner : MonoBehaviour
             canSpawn = false;
             yield return new WaitForSeconds(spawnTime);
 
-            Instantiate(enemyPrefab[0], spawnPoints[Random.Range(0, spawnPoints.Length)].transform.position, Quaternion.Euler(0,180,0), this.transform);
+            Instantiate(enemyPrefab[0], spawnPoints[Random.Range(0, spawnPoints.Length)].transform.position, Quaternion.Euler(0,0,0), this.transform);
             spawnTime -= 0.01f;
             if(spawnTime <= 1) spawnTime = 1;
             difficultyCounter++;

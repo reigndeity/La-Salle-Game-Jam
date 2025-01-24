@@ -5,16 +5,26 @@ public class Projectile : MonoBehaviour
     [Header("Projectile Properties")]
     [SerializeField] float lifetime;
     public string projectileSequence;
+    public string enemySequence;
+     
     void Start()
     {
         Destroy(gameObject, lifetime);
-
-        // Debug to verify the sequence
         Debug.Log($"Projectile spawned with sequence: {projectileSequence}");
     }
 
-    void OnCollisionEnter(Collision collision)
+    public void OnTriggerEnter(Collider other)
     {
-        Debug.Log($"Projectile hit {collision.gameObject.name}");
+        if (other.gameObject.tag == "Enemy")
+        {
+            EnemyStats enemyStats = other.gameObject.GetComponent<EnemyStats>();
+            enemySequence = enemyStats.enemySequence;
+            if (projectileSequence == enemySequence)
+            {
+                enemyStats.Die();
+
+            }
+            Destroy(gameObject);
+        }
     }
 }

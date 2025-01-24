@@ -8,13 +8,16 @@ public class EnemyStats : MonoBehaviour
     public bool canDie;
 
     [Header("Ingredients")]
-    public int red;
-    public int green;
-    public int brown;
-    public int purple;
+    public int red; //1
+    public int green; //2
+    public int brown; //3
+    public int purple; //4
+
     public Image[] flavors;
     public GameObject flavorHolder;
 
+    [Header("Pop-Up Properties")]
+    public string enemySequence;
     public GameObject ingr_PopUp;
 
     private void Start()
@@ -24,14 +27,14 @@ public class EnemyStats : MonoBehaviour
 
     private void Update()
     {
-        if (canDie)
-        {
-            if(red == 0 && green == 0 && brown == 0 && purple == 0)
-            {
-                Destroy(this.gameObject);
-                //points++;
-            }
-        }
+        // if (canDie)
+        // {
+        //     if(red == 0 && green == 0 && brown == 0 && purple == 0)
+        //     {
+        //         Destroy(this.gameObject);
+        //         //points++;
+        //     }
+        // }
     }
     void PopUp()
     {
@@ -46,11 +49,16 @@ public class EnemyStats : MonoBehaviour
     void Randomizer()
     {
         int randomIngr = Random.Range(0, 4);
-        if (randomIngr == 0) red++;
-        else if(randomIngr == 1) green++;
-        else if(randomIngr == 2) brown++;
-        else if(randomIngr == 3) purple++;
+        if (randomIngr == 0) enemySequence += "1";//red++;
+        else if(randomIngr == 1) enemySequence += "2";//green++;
+        else if(randomIngr == 2) enemySequence += "3";//brown++;
+        else if(randomIngr == 3) enemySequence += "4";//purple++;
         Instantiate(flavors[randomIngr], flavorHolder.transform.position, Quaternion.identity, flavorHolder.transform);
         canDie = true;
+    }
+
+    public void Die()
+    {
+        Destroy(gameObject);
     }
 }
