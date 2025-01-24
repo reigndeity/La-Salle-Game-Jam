@@ -18,11 +18,16 @@ public class Projectile : MonoBehaviour
         if (other.gameObject.tag == "Enemy")
         {
             EnemyStats enemyStats = other.gameObject.GetComponent<EnemyStats>();
+            EnemyMovement enemyMovement = other.gameObject.GetComponent<EnemyMovement>();
             enemySequence = enemyStats.enemySequence;
             if (projectileSequence == enemySequence)
             {
                 enemyStats.Die();
 
+            }
+            else if(projectileSequence != enemySequence)
+            {
+                enemyMovement.speed += 1.5f;
             }
             Destroy(gameObject);
         }
