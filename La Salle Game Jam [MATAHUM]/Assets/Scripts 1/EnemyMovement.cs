@@ -5,13 +5,19 @@ using UnityEngine;
 public class EnemyMovement : MonoBehaviour
 {
     public float speed;
+    public GameObject target;
 
     private void Start()
     {
+        target = GameObject.FindGameObjectWithTag("Player");
     }
     private void Update()
     {
-        transform.Translate(Vector3.forward * -speed * Time.deltaTime);
+        if (target != null)
+        {
+            Vector3 direction = (target.transform.position - transform.position).normalized;
+            transform.Translate(direction * speed * Time.deltaTime, Space.World);
+        }
     }
 
     private void OnCollisionEnter(Collision collision)

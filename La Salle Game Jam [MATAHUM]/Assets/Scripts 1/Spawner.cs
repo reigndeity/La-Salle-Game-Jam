@@ -7,6 +7,7 @@ public class Spawner : MonoBehaviour
     public static Spawner instance;
     public GameObject[] enemyPrefab;
     public GameObject[] spawnPoints;
+    public GameObject[] endPoints;
 
     [Header("Spawn Variables")]
     public bool canSpawn;
@@ -21,7 +22,6 @@ public class Spawner : MonoBehaviour
     private void Update()
     {
         StartCoroutine(Spawn());
-        
     }
 
     IEnumerator Spawn()
@@ -31,7 +31,10 @@ public class Spawner : MonoBehaviour
             canSpawn = false;
             yield return new WaitForSeconds(spawnTime);
 
-            Instantiate(enemyPrefab[0], spawnPoints[Random.Range(0, spawnPoints.Length)].transform.position, Quaternion.Euler(0,0,0), this.transform);
+            int randomPoints = Random.Range(0, spawnPoints.Length);
+            Instantiate(enemyPrefab[0], spawnPoints[randomPoints].transform.position, Quaternion.identity, this.transform);
+            
+
             spawnTime -= 0.01f;
             if(spawnTime <= 1) spawnTime = 1;
             difficultyCounter++;
