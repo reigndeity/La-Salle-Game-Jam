@@ -9,10 +9,8 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
 
     public int points;
-    public TextMeshProUGUI pointText;
+    public TMP_Text pointText;
     public float timer;
-    public TextMeshProUGUI timerText;
-
 
     private void Awake()
     {
@@ -21,8 +19,7 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        //pointText.text = points.ToString();
-        //timerText.text = timer.ToString();
+        pointText.text = points.ToString();
     }
 
 
