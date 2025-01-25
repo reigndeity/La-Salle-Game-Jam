@@ -13,9 +13,12 @@ public class GunController : MonoBehaviour
     public bool canPressKeys;
     public string bubbleSequence = ""; // Stores the sequence of key presses
     private int maxLength = 3;
-    public int bubbleTeaLayers;
+    
+    [Header("Projectile Indicator")]
     public GameObject[] bubbleTeaLayersObj;
-
+    public GameObject[] bubbleTeaIndicator; 
+    public Material[] bubbleTeaIndicatorMaterials;
+    
     [Header("Materials for Each Layer")]
     public Material[] element1Materials; 
     public Material[] element2Materials; 
@@ -85,7 +88,7 @@ public class GunController : MonoBehaviour
         }
 
         // Bubble Tea Layers =========================
- switch (bubbleSequence.Length)
+    switch (bubbleSequence.Length)
     {
         case 0:
             // No sequence: deactivate all layers
@@ -93,12 +96,22 @@ public class GunController : MonoBehaviour
             {
                 obj.SetActive(false);
             }
+            foreach (GameObject obj in bubbleTeaIndicator)
+            {
+                Renderer objRenderer = obj.GetComponent<Renderer>();
+                if (objRenderer != null)
+                {
+                    objRenderer.material = bubbleTeaIndicatorMaterials[4];
+                }
+            }
             break;
 
         case 1:
             // Single-layer tea
             bubbleTeaLayersObj[0].SetActive(true); // Activate Element 0
             AssignMaterial(bubbleTeaLayersObj[0], bubbleSequence[0], element1Materials);
+
+            AssignMaterial(bubbleTeaIndicator[0], bubbleSequence[0], bubbleTeaIndicatorMaterials);
             break;
 
         case 2:
@@ -108,6 +121,8 @@ public class GunController : MonoBehaviour
             bubbleTeaLayersObj[2].SetActive(true); // Activate Element 2
             AssignMaterial(bubbleTeaLayersObj[1], bubbleSequence[0], element2Materials); // First layer
             AssignMaterial(bubbleTeaLayersObj[2], bubbleSequence[1], element3Materials); // Second layer
+
+            AssignMaterial(bubbleTeaIndicator[1], bubbleSequence[1], bubbleTeaIndicatorMaterials);
             break;
 
         case 3:
@@ -121,6 +136,8 @@ public class GunController : MonoBehaviour
             AssignMaterial(bubbleTeaLayersObj[3], bubbleSequence[0], element4Materials); // First layer
             AssignMaterial(bubbleTeaLayersObj[4], bubbleSequence[1], element5Materials); // Second layer
             AssignMaterial(bubbleTeaLayersObj[5], bubbleSequence[2], element6Materials); // Third layer
+
+            AssignMaterial(bubbleTeaIndicator[2], bubbleSequence[2], bubbleTeaIndicatorMaterials);
             break;
     }
     }
