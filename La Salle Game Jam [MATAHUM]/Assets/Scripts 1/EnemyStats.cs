@@ -8,9 +8,9 @@ public class EnemyStats : MonoBehaviour
     public bool canDie;
 
     [Header("Ingredients")]
-    public int red; //1
-    public int green; //2
-    public int brown; //3
+    public int blue; //1
+    public int red; //2
+    public int green; //3
     public int purple; //4
 
     public GameObject[] flavors;
@@ -20,9 +20,11 @@ public class EnemyStats : MonoBehaviour
     public string enemySequence;
     public GameObject ingr_PopUp;
 
+    private EnemyMovement _enemyMovement;
     private void Start()
     {
         Invoke("PopUp", 1);
+        _enemyMovement = GetComponent<EnemyMovement>();
     }
 
     void PopUp()
@@ -38,9 +40,9 @@ public class EnemyStats : MonoBehaviour
     void Randomizer()
     {
         int randomIngr = Random.Range(0, 4);
-        if (randomIngr == 0) enemySequence += "1";//red++;
-        else if(randomIngr == 1) enemySequence += "2";//green++;
-        else if(randomIngr == 2) enemySequence += "3";//brown++;
+        if (randomIngr == 0) enemySequence += "1";//blue++;
+        else if(randomIngr == 1) enemySequence += "2";//red++;
+        else if(randomIngr == 2) enemySequence += "3";//green++;
         else if(randomIngr == 3) enemySequence += "4";//purple++;
         Instantiate(flavors[randomIngr], flavorHolder.transform.position, Quaternion.identity, flavorHolder.transform);
         canDie = true;
@@ -54,6 +56,7 @@ public class EnemyStats : MonoBehaviour
         else if (Spawner.instance.difficultyLevel == 3) GameManager.Instance.points+=100;
         Spawner.instance.SpawnEnemy();
         GameManager.Instance.timer += 3f;
-        Destroy(gameObject);
+        _enemyMovement.Catch();
+        
     }
 }

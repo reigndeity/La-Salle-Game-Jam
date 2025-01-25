@@ -43,7 +43,7 @@ public class Spawner : MonoBehaviour
         int randomPoints = Random.Range(0, spawnPoints.Length);
 
         // Spawn the enemy
-        GameObject spawned = Instantiate(enemyPrefab[0], spawnPoints[randomPoints].transform.position, Quaternion.identity, this.transform);
+        GameObject spawned = Instantiate(enemyPrefab[Random.Range(0, enemyPrefab.Length)], spawnPoints[randomPoints].transform.position, Quaternion.identity, this.transform);
 
         // Assign the corresponding endpoint as the target
         EnemyMovement enemyMovement = spawned.GetComponent<EnemyMovement>();
