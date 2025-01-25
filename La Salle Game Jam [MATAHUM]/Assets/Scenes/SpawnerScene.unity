@@ -640,7 +640,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPrefab:
-  - {fileID: 8761876686143976977, guid: 7f2ad5b715b62294d8df5c0e6baca7cb, type: 3}
+  - {fileID: 3891983402656454030, guid: f2eaed49dfaf2424282bda520e95a806, type: 3}
   spawnPoints:
   - {fileID: 1334838181}
   - {fileID: 1329841175}

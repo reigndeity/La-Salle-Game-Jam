@@ -13,7 +13,7 @@ public class EnemyStats : MonoBehaviour
     public int brown; //3
     public int purple; //4
 
-    public Image[] flavors;
+    public GameObject[] flavors;
     public GameObject flavorHolder;
 
     [Header("Pop-Up Properties")]
@@ -25,17 +25,6 @@ public class EnemyStats : MonoBehaviour
         Invoke("PopUp", 1);
     }
 
-    private void Update()
-    {
-        // if (canDie)
-        // {
-        //     if(red == 0 && green == 0 && brown == 0 && purple == 0)
-        //     {
-        //         Destroy(this.gameObject);
-        //         //points++;
-        //     }
-        // }
-    }
     void PopUp()
     {
         ingr_PopUp.SetActive(true);
@@ -55,6 +44,7 @@ public class EnemyStats : MonoBehaviour
         else if(randomIngr == 3) enemySequence += "4";//purple++;
         Instantiate(flavors[randomIngr], flavorHolder.transform.position, Quaternion.identity, flavorHolder.transform);
         canDie = true;
+        Debug.Log("Added ingredient");
     }
 
     public void Die()
