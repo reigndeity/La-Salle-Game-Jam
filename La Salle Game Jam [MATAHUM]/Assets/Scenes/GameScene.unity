@@ -6827,7 +6827,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 53a2a209367d8cd4288f07c60fcba948, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -7486,7 +7486,6 @@ MonoBehaviour:
   isSelectBubble: 0
   canPressKeys: 1
   bubbleSequence: 
-  bubbleTeaLayers: 0
   bubbleTeaLayersObj:
   - {fileID: 7776818496614018751}
   - {fileID: 7711245010899153230}
@@ -7494,6 +7493,16 @@ MonoBehaviour:
   - {fileID: 6147671093661612773}
   - {fileID: 4889260299679982401}
   - {fileID: 1072880105762535902}
+  bubbleTeaIndicator:
+  - {fileID: 4975493131785367886}
+  - {fileID: 2539524463355715826}
+  - {fileID: 1580480590840260574}
+  bubbleTeaIndicatorMaterials:
+  - {fileID: 2100000, guid: b9b440061f43b10448baa39eee5229f8, type: 2}
+  - {fileID: 2100000, guid: 921106925c91d7e4eb0116104304f934, type: 2}
+  - {fileID: 2100000, guid: bf42f4d432dd18e45b96000b5009c88a, type: 2}
+  - {fileID: 2100000, guid: ac3451ba044d7274eaa4ace9fa88e878, type: 2}
+  - {fileID: 2100000, guid: 53a2a209367d8cd4288f07c60fcba948, type: 2}
   element1Materials:
   - {fileID: 2100000, guid: b7eb521428b80c3419bb23bad369c303, type: 2}
   - {fileID: 2100000, guid: 142cbaf7a40da8447888743ceb05c7b9, type: 2}
