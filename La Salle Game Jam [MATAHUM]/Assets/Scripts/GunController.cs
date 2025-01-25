@@ -54,9 +54,11 @@ public class GunController : MonoBehaviour
             _ammoAnimator.SetInteger("animState", 1);
             canPressKeys = false;
         }
-        else
+        if (Input.GetMouseButtonDown(1) && bubbleSequence.Length != 0)
         {
-            Debug.Log("No Ingredient Selected");
+            bubbleSequence = "";
+            _ammoAnimator.SetInteger("animState", 1);
+            canPressKeys = false;
         }
         // Bubble Selector =========================
         if (canPressKeys == true)

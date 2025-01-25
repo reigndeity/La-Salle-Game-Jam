@@ -555,9 +555,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e6d8ff43f86070478211f6ff7880ffd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timerText: {fileID: 520508658}
-  timeRemaining: 60
   timerRunning: 1
+  timerText: {fileID: 520508658}
 --- !u!1 &555750566
 GameObject:
   m_ObjectHideFlags: 0
@@ -584,6 +583,76 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -2.3103454, y: -4.1340814, z: -0.5026172}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &802431124
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 802431127}
+  - component: {fileID: 802431126}
+  - component: {fileID: 802431125}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &802431125
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 802431124}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a09a070c132ff4c45aa96fba0742cad3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  points: 0
+  highscore: 0
+  pointText: {fileID: 0}
+  finalPointText: {fileID: 0}
+  highscoreText: {fileID: 0}
+  timer: 61
+  timerScript: {fileID: 0}
+  pressureBarFill: {fileID: 0}
+  currentPressure: 0
+  maxPressure: 10
+  gameOver: {fileID: 0}
+--- !u!114 &802431126
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 802431124}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e6d8ff43f86070478211f6ff7880ffd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timerRunning: 1
+  timerText: {fileID: 0}
+--- !u!4 &802431127
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 802431124}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 30.968315, y: -81.005035, z: 67.49271}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1027,3 +1096,4 @@ SceneRoots:
   - {fileID: 1503052912}
   - {fileID: 1039208876}
   - {fileID: 554289693}
+  - {fileID: 802431127}

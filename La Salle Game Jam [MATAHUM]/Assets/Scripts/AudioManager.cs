@@ -27,13 +27,14 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    public void onButtonClick()
+    public void OnButtonClickSFX()
     {
         sfxSource.PlayOneShot(sfxClips[0]);
     }
 
-    public void onBellClick()
+    public void OnBellClickSFX()
     {
         sfxSource.PlayOneShot(sfxClips[1]);
     }
+
 }
