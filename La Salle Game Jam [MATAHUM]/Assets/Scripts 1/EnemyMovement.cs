@@ -5,6 +5,8 @@ using UnityEngine;
 public class EnemyMovement : MonoBehaviour
 {
     public float speed;
+    public bool isAngry;
+    public float angrySpeed = 1.5f;
     public GameObject target;
 
     private void Update()
@@ -23,6 +25,16 @@ public class EnemyMovement : MonoBehaviour
             GameManager.Instance.AddPressure(1);
             Debug.Log("Adding Pressure Counter");
             Destroy(this.gameObject);
+        }
+    }
+
+    public void Angry()
+    {
+
+        if(!isAngry)
+        {
+            isAngry = true;
+            speed += angrySpeed;
         }
     }
 }

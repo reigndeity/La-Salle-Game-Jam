@@ -10,6 +10,6 @@ public class PlayerAiming : MonoBehaviour
     {
         float mouseX = Input.mousePosition.x / Screen.width;
         float targetYRotation = Mathf.Lerp(minYRotation, maxYRotation, mouseX);
-        transform.rotation = Quaternion.Euler(0f, targetYRotation, 0f);
+        transform.rotation = Quaternion.Euler(0, targetYRotation, 0f);
     }
 }

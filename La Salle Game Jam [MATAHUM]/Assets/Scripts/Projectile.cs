@@ -27,7 +27,7 @@ public class Projectile : MonoBehaviour
             }
             else if(projectileSequence != enemySequence)
             {
-                enemyMovement.speed += 1.5f;
+                enemyMovement.Angry();
             }
             Destroy(gameObject);
         }
