@@ -32,20 +32,20 @@ public class MainMenu : MonoBehaviour
             if (Physics.Raycast(ray, out hit, Mathf.Infinity, playLayer))
             {
                 Debug.Log("Open");
-                AudioManager.instance.onButtonClick();
+                AudioManager.instance.OnButtonClickSFX();
                 startCollider.enabled = false;
                 exitCollider.enabled = false;
                 doorAnimator.SetTrigger("OpenDoor");
                 camAnimator.SetTrigger("OpenDoor");
             } else if (Physics.Raycast(ray, out hit, Mathf.Infinity, exitLayer))
             {
-                AudioManager.instance.onButtonClick();
+                AudioManager.instance.OnButtonClickSFX();
                 Debug.Log("Exit");
                 Application.Quit();
             } else if (Physics.Raycast(ray, out hit, Mathf.Infinity, bellLayer))
             {
                 bellAnimator.SetTrigger("RingBell");
-                AudioManager.instance.onBellClick();
+                AudioManager.instance.OnBellClickSFX();
                 Debug.Log("Ring");
             }
         }

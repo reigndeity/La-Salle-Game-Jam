@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class GunController : MonoBehaviour
@@ -47,101 +48,109 @@ public class GunController : MonoBehaviour
     }
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) && isSelectBubble == true)
+        if (GameManager.Instance.isGameStart == true)
         {
-            _playerAnimator.speed = 1.5f;
-            _playerAnimator.SetInteger("animState", 1); // Shoot() is called in the event system
-            _ammoAnimator.SetInteger("animState", 1);
-            canPressKeys = false;
-        }
-        if (Input.GetMouseButtonDown(1) && bubbleSequence.Length != 0)
-        {
-            bubbleSequence = "";
-            _ammoAnimator.SetInteger("animState", 1);
-            canPressKeys = false;
-        }
-        // Bubble Selector =========================
-        if (canPressKeys == true)
-        {
-             if (Input.GetKeyDown(KeyCode.Q))
-            {
-                AddToBubbleSequence("1");
-                isSelectBubble = true;
-                _blueButtonAnimator.SetInteger("animState", 1);
-            }
-            if (Input.GetKeyDown(KeyCode.W))
-            {
-                AddToBubbleSequence("2");
-                isSelectBubble = true;
-                _redButtonAnimator.SetInteger("animState", 1);
-            }
-            if (Input.GetKeyDown(KeyCode.E))
-            {
-                AddToBubbleSequence("3");
-                isSelectBubble = true;
-                _greenButtonAnimator.SetInteger("animState", 1);
-            }
-            if (Input.GetKeyDown(KeyCode.R))
-            {
-                AddToBubbleSequence("4");
-                isSelectBubble = true;
-                _purpleButtonAnimator.SetInteger("animState", 1);
-            }
-        }
-
-        // Bubble Tea Layers =========================
-    switch (bubbleSequence.Length)
-    {
-        case 0:
-            // No sequence: deactivate all layers
-            foreach (GameObject obj in bubbleTeaLayersObj)
-            {
-                obj.SetActive(false);
-            }
-            foreach (GameObject obj in bubbleTeaIndicator)
-            {
-                Renderer objRenderer = obj.GetComponent<Renderer>();
-                if (objRenderer != null)
+            if (Input.GetMouseButtonDown(0) && isSelectBubble == true)
                 {
-                    objRenderer.material = bubbleTeaIndicatorMaterials[4];
+                    _playerAnimator.speed = 1.5f;
+                    _playerAnimator.SetInteger("animState", 1); // Shoot() is called in the event system
+                    _ammoAnimator.SetInteger("animState", 1);
+                    canPressKeys = false;
                 }
+                if (Input.GetMouseButtonDown(1) && bubbleSequence.Length != 0)
+                {
+                    bubbleSequence = "";
+                    _ammoAnimator.SetInteger("animState", 1);
+                    canPressKeys = false;
+                }
+                // Bubble Selector =========================
+                if (canPressKeys == true)
+                {
+                    if (Input.GetKeyDown(KeyCode.Q))
+                    {
+                        AddToBubbleSequence("1");
+                        isSelectBubble = true;
+                        _blueButtonAnimator.SetInteger("animState", 1);
+                    }
+                    if (Input.GetKeyDown(KeyCode.W))
+                    {
+                        AddToBubbleSequence("2");
+                        isSelectBubble = true;
+                        _redButtonAnimator.SetInteger("animState", 1);
+                    }
+                    if (Input.GetKeyDown(KeyCode.E))
+                    {
+                        AddToBubbleSequence("3");
+                        isSelectBubble = true;
+                        _greenButtonAnimator.SetInteger("animState", 1);
+                    }
+                    if (Input.GetKeyDown(KeyCode.R))
+                    {
+                        AddToBubbleSequence("4");
+                        isSelectBubble = true;
+                        _purpleButtonAnimator.SetInteger("animState", 1);
+                    }
+                }
+
+                // Bubble Tea Layers =========================
+            switch (bubbleSequence.Length)
+            {
+                case 0:
+                    // No sequence: deactivate all layers
+                    foreach (GameObject obj in bubbleTeaLayersObj)
+                    {
+                        obj.SetActive(false);
+                    }
+                    foreach (GameObject obj in bubbleTeaIndicator)
+                    {
+                        Renderer objRenderer = obj.GetComponent<Renderer>();
+                        if (objRenderer != null)
+                        {
+                            objRenderer.material = bubbleTeaIndicatorMaterials[4];
+                        }
+                    }
+                    break;
+
+                case 1:
+                    // Single-layer tea
+                    bubbleTeaLayersObj[0].SetActive(true); // Activate Element 0
+                    AssignMaterial(bubbleTeaLayersObj[0], bubbleSequence[0], element1Materials);
+
+                    AssignMaterial(bubbleTeaIndicator[0], bubbleSequence[0], bubbleTeaIndicatorMaterials);
+                    break;
+
+                case 2:
+                    // Two-layer tea
+                    bubbleTeaLayersObj[0].SetActive(false); // Deactivate Element 0
+                    bubbleTeaLayersObj[1].SetActive(true); // Activate Element 1
+                    bubbleTeaLayersObj[2].SetActive(true); // Activate Element 2
+                    AssignMaterial(bubbleTeaLayersObj[1], bubbleSequence[0], element2Materials); // First layer
+                    AssignMaterial(bubbleTeaLayersObj[2], bubbleSequence[1], element3Materials); // Second layer
+
+                    AssignMaterial(bubbleTeaIndicator[1], bubbleSequence[1], bubbleTeaIndicatorMaterials);
+                    break;
+
+                case 3:
+                    // Three-layer tea
+                    bubbleTeaLayersObj[0].SetActive(false); // Deactivate Element 0
+                    bubbleTeaLayersObj[1].SetActive(false); // Deactivate Element 1
+                    bubbleTeaLayersObj[2].SetActive(false); // Deactivate Element 2
+                    bubbleTeaLayersObj[3].SetActive(true); // Activate Element 3
+                    bubbleTeaLayersObj[4].SetActive(true); // Activate Element 4
+                    bubbleTeaLayersObj[5].SetActive(true); // Activate Element 5
+                    AssignMaterial(bubbleTeaLayersObj[3], bubbleSequence[0], element4Materials); // First layer
+                    AssignMaterial(bubbleTeaLayersObj[4], bubbleSequence[1], element5Materials); // Second layer
+                    AssignMaterial(bubbleTeaLayersObj[5], bubbleSequence[2], element6Materials); // Third layer
+
+                    AssignMaterial(bubbleTeaIndicator[2], bubbleSequence[2], bubbleTeaIndicatorMaterials);
+                    break;
             }
-            break;
+        }
+        else
+        {
+            Debug.Log("Cant use that yet!");
+        }
 
-        case 1:
-            // Single-layer tea
-            bubbleTeaLayersObj[0].SetActive(true); // Activate Element 0
-            AssignMaterial(bubbleTeaLayersObj[0], bubbleSequence[0], element1Materials);
-
-            AssignMaterial(bubbleTeaIndicator[0], bubbleSequence[0], bubbleTeaIndicatorMaterials);
-            break;
-
-        case 2:
-            // Two-layer tea
-            bubbleTeaLayersObj[0].SetActive(false); // Deactivate Element 0
-            bubbleTeaLayersObj[1].SetActive(true); // Activate Element 1
-            bubbleTeaLayersObj[2].SetActive(true); // Activate Element 2
-            AssignMaterial(bubbleTeaLayersObj[1], bubbleSequence[0], element2Materials); // First layer
-            AssignMaterial(bubbleTeaLayersObj[2], bubbleSequence[1], element3Materials); // Second layer
-
-            AssignMaterial(bubbleTeaIndicator[1], bubbleSequence[1], bubbleTeaIndicatorMaterials);
-            break;
-
-        case 3:
-            // Three-layer tea
-            bubbleTeaLayersObj[0].SetActive(false); // Deactivate Element 0
-            bubbleTeaLayersObj[1].SetActive(false); // Deactivate Element 1
-            bubbleTeaLayersObj[2].SetActive(false); // Deactivate Element 2
-            bubbleTeaLayersObj[3].SetActive(true); // Activate Element 3
-            bubbleTeaLayersObj[4].SetActive(true); // Activate Element 4
-            bubbleTeaLayersObj[5].SetActive(true); // Activate Element 5
-            AssignMaterial(bubbleTeaLayersObj[3], bubbleSequence[0], element4Materials); // First layer
-            AssignMaterial(bubbleTeaLayersObj[4], bubbleSequence[1], element5Materials); // Second layer
-            AssignMaterial(bubbleTeaLayersObj[5], bubbleSequence[2], element6Materials); // Third layer
-
-            AssignMaterial(bubbleTeaIndicator[2], bubbleSequence[2], bubbleTeaIndicatorMaterials);
-            break;
-    }
     }
     void AssignMaterial(GameObject layerObj, char sequenceChar, Material[] materials)
     {

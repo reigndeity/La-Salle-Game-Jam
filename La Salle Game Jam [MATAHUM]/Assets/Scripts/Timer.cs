@@ -6,23 +6,31 @@ public class Timer : MonoBehaviour
 {
     public bool timerRunning = true;
     public TMP_Text timerText;
-
     void Update()
     {
-        if (timerRunning)
+        if (GameManager.Instance.isGameStart == true)
         {
-            if (GameManager.Instance.timer > 0)
+            if (timerRunning)
             {
-                GameManager.Instance.timer  -= Time.deltaTime;
-                DisplayTime(GameManager.Instance.timer );
-            }
-            else
-            {
-                GameManager.Instance.timer  = 0;
-                timerRunning = false;
-                DisplayTime(GameManager.Instance.timer );
+                if (GameManager.Instance.timer > 0)
+                {
+                    GameManager.Instance.timer  -= Time.deltaTime;
+                    DisplayTime(GameManager.Instance.timer );
+                }
+                else
+                {
+                    GameManager.Instance.timer  = 0;
+                    timerRunning = false;
+                    DisplayTime(GameManager.Instance.timer );
+                }
             }
         }
+        else
+        {
+            Debug.Log("Game has not started yet!");
+        }
+
+
     }
 
     void DisplayTime(float timeToDisplay)

@@ -27,15 +27,23 @@ public class Spawner : MonoBehaviour
 
     IEnumerator Spawn()
     {
-        if (canSpawn)
+        if (GameManager.Instance.isGameStart == true)
         {
-            canSpawn = false;
-            yield return new WaitForSeconds(spawnTime);
+            if (canSpawn)
+            {
+                canSpawn = false;
+                yield return new WaitForSeconds(spawnTime);
 
-            SpawnEnemy();
+                SpawnEnemy();
 
-            canSpawn = true;
+                canSpawn = true;
+            }
         }
+        else
+        {
+            Debug.Log("Can't spawn yet!");
+        }
+
     }
 
     public void SpawnEnemy()
