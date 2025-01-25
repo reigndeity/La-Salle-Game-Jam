@@ -26,9 +26,17 @@ public class EnemyMovement : MonoBehaviour
     {
         if (target != null)
         {
-            Vector3 direction = (target.transform.position - transform.position).normalized;
-            transform.Translate(direction * speed * Time.deltaTime, Space.World);
-            transform.rotation = Quaternion.Euler(0, 180, 0);
+            if (GameManager.Instance.isGameStart == true)
+            {
+                Vector3 direction = (target.transform.position - transform.position).normalized;
+                transform.Translate(direction * speed * Time.deltaTime, Space.World);
+                transform.rotation = Quaternion.Euler(0, 180, 0);
+            }
+            else
+            {
+                speed = 0;
+            }
+
         }
     }
 
