@@ -20,7 +20,8 @@ public class EnemyMovement : MonoBehaviour
     {
         if (collision.gameObject.tag == "Boundary")
         {
-            Debug.Log("Destroy Object");
+            GameManager.Instance.AddPressure(1);
+            Debug.Log("Adding Pressure Counter");
             Destroy(this.gameObject);
         }
     }
