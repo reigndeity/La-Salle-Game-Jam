@@ -59,6 +59,11 @@ public class EnemyStats : MonoBehaviour
 
     public void Die()
     {
+        if(Spawner.instance.difficultyLevel == 1) GameManager.Instance.points+=25;
+        else if (Spawner.instance.difficultyLevel == 2) GameManager.Instance.points+=50;
+        else if (Spawner.instance.difficultyLevel == 3) GameManager.Instance.points+=100;
+        Spawner.instance.SpawnEnemy();
+        GameManager.Instance.timer += 3f;
         Destroy(gameObject);
     }
 }

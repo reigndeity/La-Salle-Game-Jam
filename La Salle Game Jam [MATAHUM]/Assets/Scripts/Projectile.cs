@@ -23,7 +23,7 @@ public class Projectile : MonoBehaviour
             if (projectileSequence == enemySequence)
             {
                 enemyStats.Die();
-
+                
             }
             else if(projectileSequence != enemySequence)
             {

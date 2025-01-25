@@ -12,8 +12,7 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI pointText;
     public float timer;
     public TextMeshProUGUI timerText;
-    public int health;
-    public TextMeshProUGUI healthText;
+
 
     private void Awake()
     {
@@ -22,14 +21,8 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        pointText.text = points.ToString();
-        timerText.text = timer.ToString();
-        healthText.text = health.ToString();
-
-        if (health <= 0)
-        {
-            //GameOver Function
-        }
+        //pointText.text = points.ToString();
+        //timerText.text = timer.ToString();
     }
 
 
