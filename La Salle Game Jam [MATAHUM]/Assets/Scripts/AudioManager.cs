@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
-    private static AudioManager instance;
+    public static AudioManager instance;
+
     [Header("Music Properties")]
     public AudioSource musicSource;
     public AudioClip[] musicClips;
+
     [Header("SFX Properties")]
     public AudioSource sfxSource;
     public AudioClip[] sfxClips;
@@ -23,5 +25,15 @@ public class AudioManager : MonoBehaviour
             instance = this;
             
         }
+    }
+
+    public void onButtonClick()
+    {
+        sfxSource.PlayOneShot(sfxClips[0]);
+    }
+
+    public void onBellClick()
+    {
+        sfxSource.PlayOneShot(sfxClips[1]);
     }
 }
