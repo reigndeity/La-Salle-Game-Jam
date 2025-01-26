@@ -103,6 +103,11 @@ public class AudioManager : MonoBehaviour
         sfxSource.volume = 1f;
         sfxSource.PlayOneShot(sfxClips[10]);
     }
+    public void UpdatedGunSound()
+    {
+        sfxSource.volume = 1f;
+        sfxSource.PlayOneShot(sfxClips[11]);
+    }
 
 
 

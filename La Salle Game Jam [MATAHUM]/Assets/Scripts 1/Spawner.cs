@@ -15,6 +15,7 @@ public class Spawner : MonoBehaviour
     public int difficultyLevel;
     public int difficultyCounter;
     public float speedMultiplier;
+    public bool spawnOnce;
 
     private void Awake()
     {
@@ -23,12 +24,18 @@ public class Spawner : MonoBehaviour
     private void Update()
     {
         StartCoroutine(Spawn());
+
     }
 
     IEnumerator Spawn()
     {
         if (GameManager.Instance.isGameStart == true)
         {
+            if(spawnOnce == false)
+            {
+                SpawnEnemy();
+                spawnOnce = true;
+            }
             if (canSpawn)
             {
                 canSpawn = false;

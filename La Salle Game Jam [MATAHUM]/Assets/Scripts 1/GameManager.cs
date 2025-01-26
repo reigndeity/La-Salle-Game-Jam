@@ -47,6 +47,7 @@ public class GameManager : MonoBehaviour
     {
         timerScript = GetComponent<Timer>();
         StartCoroutine(GameStart());
+        Time.timeScale = 1;
     }
     private void Update()
     {
