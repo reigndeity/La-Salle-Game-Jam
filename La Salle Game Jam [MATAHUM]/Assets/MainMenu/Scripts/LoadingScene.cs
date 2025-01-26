@@ -8,6 +8,7 @@ public class LoadingScene : MonoBehaviour
 {
     public GameObject loadingScreen;
     public Image loadingBarFill;
+    public MainMenu mainMenu;
 
     public void LoadScene(int sceneID)
     {
@@ -27,5 +28,10 @@ public class LoadingScene : MonoBehaviour
 
             yield return null;
         }
+    }
+
+    public void FadeTrigger() 
+    {
+        mainMenu.TriggerFade();
     }
 }
