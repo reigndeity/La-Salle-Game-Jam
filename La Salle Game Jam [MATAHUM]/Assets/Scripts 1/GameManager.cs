@@ -156,6 +156,7 @@ public class GameManager : MonoBehaviour
     void EscapedPanel()
     {
         currentPointText.text = points.ToString();
+        highscore = PlayerPrefs.GetInt("Highscore", 0);
         if (points > highscore)
         {
             highscore = points;
