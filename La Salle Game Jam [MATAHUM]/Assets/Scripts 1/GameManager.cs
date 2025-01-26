@@ -88,6 +88,8 @@ public class GameManager : MonoBehaviour
                 isEscaped = false;
                 isGameStart = true;
                 timerScript.timerRunning = true;
+                Cursor.visible = false;
+                Time.timeScale = 1;
             }
             else
             {
@@ -95,6 +97,8 @@ public class GameManager : MonoBehaviour
                 isEscaped = true;
                 isGameStart = false;
                 timerScript.timerRunning = false;
+                Cursor.visible = true;
+                Time.timeScale = 0;
             }
         }
     }
