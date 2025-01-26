@@ -6,18 +6,18 @@ using UnityEngine.SceneManagement;
 public class ButtonManager : MonoBehaviour
 {
     public GameObject mainMenuConfirmation;
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.O))
-        {
-            SceneManager.LoadScene("GameScene");
-        }
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            SceneManager.LoadScene("MainMenu");
-        }
+    // private void Update()
+    // {
+    //     if (Input.GetKeyDown(KeyCode.O))
+    //     {
+    //         SceneManager.LoadScene("GameScene");
+    //     }
+    //     if (Input.GetKeyDown(KeyCode.P))
+    //     {
+    //         SceneManager.LoadScene("MainMenu");
+    //     }
 
-    }
+    // }
     public void RestartButton(string sceneName)
     {
         SceneManager.LoadScene(sceneName);

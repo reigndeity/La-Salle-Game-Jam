@@ -20,6 +20,8 @@ public class MainMenu : MonoBehaviour
     {
         startCollider.enabled = true;
         exitCollider.enabled = true;
+        Time.timeScale = 1;
+        Cursor.visible = true;
     }
 
     void Update()
