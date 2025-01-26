@@ -14,6 +14,7 @@ public class MainMenu : MonoBehaviour
     public BoxCollider exitCollider;
 
     public GameObject helpButton;
+    public GameObject fadeScreen;
 
     private void Start()
     {
@@ -23,29 +24,32 @@ public class MainMenu : MonoBehaviour
 
     void Update()
     {
-        // Check if the left mouse button is clicked
         if (Input.GetMouseButtonDown(0))
         {
-            // Create a ray from the camera to the mouse position
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
 
-            // Perform the raycast, but only for the specified LayerMask
             if (Physics.Raycast(ray, out hit, Mathf.Infinity, playLayer))
             {
                 Debug.Log("Open");
                 AudioManager.instance.OnButtonClickSFX();
+
                 startCollider.enabled = false;
                 exitCollider.enabled = false;
+
                 helpButton.SetActive(false);
+                fadeScreen.SetActive(true);
+
                 doorAnimator.SetTrigger("OpenDoor");
                 camAnimator.SetTrigger("OpenDoor");
-            } else if (Physics.Raycast(ray, out hit, Mathf.Infinity, exitLayer))
+            }
+            else if (Physics.Raycast(ray, out hit, Mathf.Infinity, exitLayer))
             {
                 AudioManager.instance.OnButtonClickSFX();
                 Debug.Log("Exit");
                 Application.Quit();
-            } else if (Physics.Raycast(ray, out hit, Mathf.Infinity, bellLayer))
+            }
+            else if(Physics.Raycast(ray, out hit, Mathf.Infinity, bellLayer))
             {
                 bellAnimator.SetTrigger("RingBell");
                 AudioManager.instance.OnBellClickSFX();
