@@ -23,7 +23,7 @@ public class EnemyStats : MonoBehaviour
     private EnemyMovement _enemyMovement;
     private void Start()
     {
-        Invoke("PopUp", 1);
+        PopUp();
         _enemyMovement = GetComponent<EnemyMovement>();
     }
 

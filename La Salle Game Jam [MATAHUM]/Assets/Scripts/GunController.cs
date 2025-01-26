@@ -226,5 +226,9 @@ public class GunController : MonoBehaviour
         _playerAnimator.SetInteger("animState", 0);
     }
 
+    public void UpdatedSound()
+    {
+        AudioManager.instance.UpdatedGunSound();
+    }
 
 }
