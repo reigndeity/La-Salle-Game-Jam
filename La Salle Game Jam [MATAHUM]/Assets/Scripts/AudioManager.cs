@@ -26,6 +26,20 @@ public class AudioManager : MonoBehaviour
             
         }
     }
+    public void GameMusic()
+    {
+        musicSource.clip = musicClips[1];
+        musicSource.Play();
+        musicSource.loop = true;
+    }
+
+    public void GameOverMusic()
+    {
+        musicSource.Stop();
+        musicSource.clip = musicClips[2];
+        musicSource.Play();
+        musicSource.loop = false;
+    }
 
     public void OnButtonClickSFX()
     {
@@ -36,5 +50,60 @@ public class AudioManager : MonoBehaviour
     {
         sfxSource.PlayOneShot(sfxClips[1]);
     }
+
+    public void SpawnSFX()
+    {
+        sfxSource.volume = 0.75f;
+        sfxSource.PlayOneShot(sfxClips[2]);
+    }
+
+    public void EnemyAngry()
+    {
+        sfxSource.volume = 0.8f;
+        sfxSource.PlayOneShot(sfxClips[3]);
+    }
+
+    public void EnemyEndPoint()
+    {
+        sfxSource.volume = 0.8f;
+        sfxSource.PlayOneShot(sfxClips[4]);
+    }
+
+    public void FinishedOrder()
+    {
+        sfxSource.volume = 0.5f;
+        sfxSource.PlayOneShot(sfxClips[5]);
+    }
+
+    public void ShootAndReload()
+    {
+        sfxSource.volume = 1f;
+        sfxSource.PlayOneShot(sfxClips[6]);
+    }
+
+    public void ReloadOnly()
+    {
+        sfxSource.volume = 1f;
+        sfxSource.PlayOneShot(sfxClips[7]);
+    }
+    public void ReadySFX()
+    {
+        sfxSource.volume = 0.25f;
+        sfxSource.PlayOneShot(sfxClips[8]);
+
+    }
+    public void GoSFX()
+    {
+        sfxSource.volume = 0.25f;
+        sfxSource.PlayOneShot(sfxClips[9]);
+
+    }
+    public void FLavorClickSFX()
+    {
+        sfxSource.volume = 1f;
+        sfxSource.PlayOneShot(sfxClips[10]);
+    }
+
+
 
 }

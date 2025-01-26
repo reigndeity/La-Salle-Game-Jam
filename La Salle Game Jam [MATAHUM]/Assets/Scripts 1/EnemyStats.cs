@@ -54,8 +54,8 @@ public class EnemyStats : MonoBehaviour
         if(Spawner.instance.difficultyLevel == 1) GameManager.Instance.points+=25;
         else if (Spawner.instance.difficultyLevel == 2) GameManager.Instance.points+=50;
         else if (Spawner.instance.difficultyLevel == 3) GameManager.Instance.points+=100;
-        Spawner.instance.SpawnEnemy();
-        GameManager.Instance.timer += 3f;
+        //Spawner.instance.DelaySpawn(); 
+        GameManager.Instance.timer += 5f;
         GameManager.Instance.ordersCompletedScore++;
         _enemyMovement.Catch();
         

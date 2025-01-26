@@ -6,6 +6,7 @@ using UnityEngine;
 public class EnemyMovement : MonoBehaviour
 {
     public float speed;
+    public float currentSpeed;
     public bool isAngry;
     public float angrySpeed = 1.5f;
     public GameObject target;
@@ -21,6 +22,7 @@ public class EnemyMovement : MonoBehaviour
         _animator = GetComponent<Animator>();
         _capsuleCollider = GetComponent<CapsuleCollider>();
         _enemyStats = GetComponent<EnemyStats>();
+        currentSpeed = speed;
     }
     private void Update()
     {
@@ -31,6 +33,7 @@ public class EnemyMovement : MonoBehaviour
                 Vector3 direction = (target.transform.position - transform.position).normalized;
                 transform.Translate(direction * speed * Time.deltaTime, Space.World);
                 transform.rotation = Quaternion.Euler(0, 180, 0);
+                speed = currentSpeed;
             }
             else
             {
@@ -54,12 +57,14 @@ public class EnemyMovement : MonoBehaviour
         {
             isAngry = true;
             speed += angrySpeed;
+            AudioManager.instance.EnemyAngry();
             _animator.SetInteger("animState", 1);
         }
     }
 
     public void Catch()
     {
+        AudioManager.instance.FinishedOrder();
         _capsuleCollider.enabled = false;
         _enemyStats.ingr_PopUp.SetActive(false);
         speed = 0;
@@ -70,6 +75,7 @@ public class EnemyMovement : MonoBehaviour
 
     public void TooLate()
     {
+        AudioManager.instance.EnemyEndPoint();
         _capsuleCollider.enabled = false;
         _enemyStats.ingr_PopUp.SetActive(false);
         speed = 0;

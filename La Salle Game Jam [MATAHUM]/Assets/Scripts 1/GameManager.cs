@@ -11,6 +11,13 @@ public class GameManager : MonoBehaviour
     public bool isGameStart;
     public TextMeshProUGUI countdownTxt;
 
+    [Header("Paused")]
+    public bool isEscaped;
+    public GameObject pausePanel;
+    public TMP_Text currentPointText;
+    public TMP_Text currentHighscoreText;
+    public TMP_Text currentOrdersCompletedText;
+
     [Header("Points")]
     public int points;
     public int highscore;
@@ -44,7 +51,8 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
         pointText.text = points.ToString();
-        if(currentPressure >= 4) 
+        EscapedPanel();
+        if (currentPressure >= 4) 
         {
             GameOver();
         }
@@ -71,6 +79,24 @@ public class GameManager : MonoBehaviour
                 pressureObjs[4].SetActive(true);
                 break;
         }
+
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (isEscaped)
+            {
+                pausePanel.SetActive(false);
+                isEscaped = false;
+                isGameStart = true;
+                timerScript.timerRunning = true;
+            }
+            else
+            {
+                pausePanel.SetActive(true);
+                isEscaped = true;
+                isGameStart = false;
+                timerScript.timerRunning = false;
+            }
+        }
     }
     public void AddPressure(float amount) 
     {
@@ -84,18 +110,24 @@ public class GameManager : MonoBehaviour
         isGameStart = false;
         countdownTxt.enabled = true;
         countdownTxt.text = "3";
+        AudioManager.instance.ReadySFX();
         yield return new WaitForSeconds(1);
         countdownTxt.text = "2";
+        AudioManager.instance.ReadySFX();
         yield return new WaitForSeconds(1);
         countdownTxt.text = "1";
+        AudioManager.instance.ReadySFX();
         yield return new WaitForSeconds(1);
         countdownTxt.text = "SHOOT!";
+        AudioManager.instance.GoSFX();
         yield return new WaitForSeconds(1);
+        AudioManager.instance.GameMusic();
         countdownTxt.enabled = false;
         isGameStart = true;
     }
     void GameOver()
     {
+        AudioManager.instance.GameOverMusic();
         Cursor.visible = true;
         finalPointText.text = points.ToString();
         highscore = PlayerPrefs.GetInt("Highscore", 0);
@@ -114,5 +146,18 @@ public class GameManager : MonoBehaviour
         gameOver.SetActive(true);
 
         isGameStart = false;
+    }
+
+    void EscapedPanel()
+    {
+        currentPointText.text = points.ToString();
+        if (points > highscore)
+        {
+            highscore = points;
+            PlayerPrefs.SetInt("Highscore", highscore);
+            PlayerPrefs.Save();
+        }
+        currentHighscoreText.text = PlayerPrefs.GetInt("Highscore", 0).ToString();
+        currentOrdersCompletedText.text = ordersCompletedScore.ToString();
     }
 }

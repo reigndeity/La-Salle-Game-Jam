@@ -52,6 +52,7 @@ public class GunController : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0) && isSelectBubble == true)
                 {
+                    AudioManager.instance.ShootAndReload();
                     _playerAnimator.speed = 1.5f;
                     _playerAnimator.SetInteger("animState", 1); // Shoot() is called in the event system
                     _ammoAnimator.SetInteger("animState", 1);
@@ -59,6 +60,7 @@ public class GunController : MonoBehaviour
                 }
                 if (Input.GetMouseButtonDown(1) && bubbleSequence.Length != 0)
                 {
+                    AudioManager.instance.ReloadOnly();
                     bubbleSequence = "";
                     _ammoAnimator.SetInteger("animState", 1);
                     canPressKeys = false;
@@ -71,26 +73,30 @@ public class GunController : MonoBehaviour
                         AddToBubbleSequence("1");
                         isSelectBubble = true;
                         _blueButtonAnimator.SetInteger("animState", 1);
+                        AudioManager.instance.FLavorClickSFX();
                     }
                     if (Input.GetKeyDown(KeyCode.W))
                     {
                         AddToBubbleSequence("2");
                         isSelectBubble = true;
                         _redButtonAnimator.SetInteger("animState", 1);
-                    }
-                    if (Input.GetKeyDown(KeyCode.E))
+                        AudioManager.instance.FLavorClickSFX();
+                }
+                if (Input.GetKeyDown(KeyCode.E))
                     {
                         AddToBubbleSequence("3");
                         isSelectBubble = true;
                         _greenButtonAnimator.SetInteger("animState", 1);
-                    }
-                    if (Input.GetKeyDown(KeyCode.R))
+                        AudioManager.instance.FLavorClickSFX();
+                }
+                if (Input.GetKeyDown(KeyCode.R))
                     {
                         AddToBubbleSequence("4");
                         isSelectBubble = true;
                         _purpleButtonAnimator.SetInteger("animState", 1);
-                    }
+                        AudioManager.instance.FLavorClickSFX();
                 }
+            }
 
                 // Bubble Tea Layers =========================
             switch (bubbleSequence.Length)

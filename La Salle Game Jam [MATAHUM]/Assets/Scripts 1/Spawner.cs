@@ -52,6 +52,8 @@ public class Spawner : MonoBehaviour
 
         // Spawn the enemy
         GameObject spawned = Instantiate(enemyPrefab[Random.Range(0, enemyPrefab.Length)], spawnPoints[randomPoints].transform.position, Quaternion.identity, this.transform);
+        
+        AudioManager.instance.SpawnSFX();
 
         // Assign the corresponding endpoint as the target
         EnemyMovement enemyMovement = spawned.GetComponent<EnemyMovement>();
@@ -61,11 +63,11 @@ public class Spawner : MonoBehaviour
         }
 
         // Adjust speed and spawn time
-        speedMultiplier += 0.01f;
+        speedMultiplier += 0.02f;
         enemyMovement.speed += speedMultiplier;
         if (enemyMovement.speed >= 5) enemyMovement.speed = 5f;
 
-        spawnTime -= 0.01f;
+        spawnTime -= 0.02f;
         if (spawnTime <= 1) spawnTime = 2;
 
         difficultyCounter++;
@@ -74,5 +76,10 @@ public class Spawner : MonoBehaviour
             difficultyLevel++;
             if (difficultyLevel >= 3) difficultyLevel = 3;
         }
+    }
+
+    public void DelaySpawn()
+    {
+        Invoke("SpawnEnemy", 1);
     }
 }
