@@ -900,10 +900,10 @@ MonoBehaviour:
   bellAnimator: {fileID: 1049651748}
   doorAnimator: {fileID: 1076040646}
   camAnimator: {fileID: 1090281515}
+  fadeAnimator: {fileID: 1852031472}
   startCollider: {fileID: 2073135480}
   exitCollider: {fileID: 682739421}
   helpButton: {fileID: 202207941}
-  fadeScreen: {fileID: 1852031468}
 --- !u!4 &570134529
 Transform:
   m_ObjectHideFlags: 0
@@ -1248,7 +1248,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 10, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &842752233
 MonoBehaviour:
@@ -1712,6 +1712,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   loadingScreen: {fileID: 842752231}
   loadingBarFill: {fileID: 1941355440}
+  mainMenu: {fileID: 570134528}
 --- !u!1 &1170092199
 GameObject:
   m_ObjectHideFlags: 0
@@ -2214,11 +2215,11 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 0b43e70646dfcc8418ded65ff088b3d6, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -2347,7 +2348,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   musicSource: {fileID: 1605456982}
-  musicClips: []
+  musicClips:
+  - {fileID: 8300000, guid: 0b43e70646dfcc8418ded65ff088b3d6, type: 3}
   sfxSource: {fileID: 1533124094}
   sfxClips:
   - {fileID: 8300000, guid: 70f931a31e1b86c46827aef0be5ef54c, type: 3}
@@ -2370,7 +2372,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1852031469
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2388,7 +2390,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 10, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1852031470
 MonoBehaviour:

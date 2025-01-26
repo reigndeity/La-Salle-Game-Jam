@@ -9,12 +9,12 @@ public class MainMenu : MonoBehaviour
     public Animator bellAnimator;
     public Animator doorAnimator;
     public Animator camAnimator;
+    public Animator fadeAnimator;
 
     public BoxCollider startCollider;
     public BoxCollider exitCollider;
 
     public GameObject helpButton;
-    public GameObject fadeScreen;
 
     private void Start()
     {
@@ -38,10 +38,10 @@ public class MainMenu : MonoBehaviour
                 exitCollider.enabled = false;
 
                 helpButton.SetActive(false);
-                fadeScreen.SetActive(true);
 
-                doorAnimator.SetTrigger("OpenDoor");
                 camAnimator.SetTrigger("OpenDoor");
+                //fadeAnimator.SetTrigger("FadeOut"); 
+                doorAnimator.SetTrigger("OpenDoor");
             }
             else if (Physics.Raycast(ray, out hit, Mathf.Infinity, exitLayer))
             {
@@ -56,5 +56,10 @@ public class MainMenu : MonoBehaviour
                 Debug.Log("Ring");
             }
         }
+    }
+
+    public void TriggerFade() 
+    {
+        fadeAnimator.SetTrigger("FadeOut");
     }
 }
