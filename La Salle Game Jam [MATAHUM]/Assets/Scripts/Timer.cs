@@ -21,6 +21,7 @@ public class Timer : MonoBehaviour
                 {
                     GameManager.Instance.timer  = 0;
                     timerRunning = false;
+                    GameManager.Instance.isTimerOver = true;
                     DisplayTime(GameManager.Instance.timer );
                 }
             }
@@ -35,7 +36,7 @@ public class Timer : MonoBehaviour
 
     void DisplayTime(float timeToDisplay)
     {   
-        timeToDisplay += 1;
+        if(timerRunning) timeToDisplay += 1;
         int minutes = Mathf.FloorToInt(timeToDisplay / 60);
         int seconds = Mathf.FloorToInt(timeToDisplay % 60);
         timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);

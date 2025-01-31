@@ -727,6 +727,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isGameStart: 0
+  isTimerOver: 0
   countdownTxt: {fileID: 583145}
   isEscaped: 0
   pausePanel: {fileID: 1014531768}
@@ -7597,6 +7598,7 @@ MonoBehaviour:
   difficultyLevel: 1
   difficultyCounter: 0
   speedMultiplier: 0
+  spawnOnce: 0
 --- !u!4 &1140303724
 Transform:
   m_ObjectHideFlags: 0

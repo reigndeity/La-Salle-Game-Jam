@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
     [Header("Game Properties")]
     public bool isGameStart;
+    public bool isTimerOver;
     public TextMeshProUGUI countdownTxt;
 
     [Header("Paused")]
@@ -53,7 +54,7 @@ public class GameManager : MonoBehaviour
     {
         pointText.text = points.ToString();
         EscapedPanel();
-        if (currentPressure >= 4) 
+        if (currentPressure >= 4 || isTimerOver) 
         {
             GameOver();
         }

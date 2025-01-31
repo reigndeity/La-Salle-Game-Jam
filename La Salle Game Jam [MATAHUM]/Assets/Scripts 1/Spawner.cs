@@ -69,24 +69,28 @@ public class Spawner : MonoBehaviour
             enemyMovement.target = endPoints[randomPoints]; // Set the endpoint as the target
         }
 
-        // Adjust speed and spawn time
-        speedMultiplier += 0.02f;
+        // Adjust speed and spawn time   
+        if (difficultyLevel == 1) speedMultiplier = 0;
+        else if (difficultyLevel == 2) speedMultiplier += 0.02f;
+        else if (difficultyLevel == 3) speedMultiplier += 0.05f;
+
         enemyMovement.speed += speedMultiplier;
         if (enemyMovement.speed >= 5) enemyMovement.speed = 5f;
+    }
 
-        spawnTime -= 0.02f;
-        if (spawnTime <= 1) spawnTime = 2;
-
+    public void IncreaseDifficulty()
+    {
         difficultyCounter++;
         if (difficultyCounter % 10 == 0)
         {
             difficultyLevel++;
             if (difficultyLevel >= 3) difficultyLevel = 3;
         }
+
+        if (difficultyLevel == 2) spawnTime -= 0.05f;
+        else if (difficultyLevel == 3) spawnTime -= 0.1f;
+
+        if (spawnTime <= 1) spawnTime = 1;
     }
 
-    public void DelaySpawn()
-    {
-        Invoke("SpawnEnemy", 1);
-    }
 }
