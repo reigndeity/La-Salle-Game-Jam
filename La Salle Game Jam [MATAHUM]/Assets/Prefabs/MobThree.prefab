@@ -943,8 +943,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
+  currentSpeed: 0
   isAngry: 0
-  angrySpeed: 1.5
+  angrySpeed: 2
   target: {fileID: 0}
   _animator: {fileID: 0}
   _capsuleCollider: {fileID: 0}

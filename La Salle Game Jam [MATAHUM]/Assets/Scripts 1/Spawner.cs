@@ -72,7 +72,7 @@ public class Spawner : MonoBehaviour
         // Adjust speed and spawn time   
         if (difficultyLevel == 1) speedMultiplier = 0;
         else if (difficultyLevel == 2) speedMultiplier += 0.02f;
-        else if (difficultyLevel == 3) speedMultiplier += 0.05f;
+        else if (difficultyLevel == 3) speedMultiplier += 0.045f;
 
         enemyMovement.speed += speedMultiplier;
         if (enemyMovement.speed >= 5) enemyMovement.speed = 5f;
@@ -88,9 +88,9 @@ public class Spawner : MonoBehaviour
         }
 
         if (difficultyLevel == 2) spawnTime -= 0.05f;
-        else if (difficultyLevel == 3) spawnTime -= 0.1f;
+        else if (difficultyLevel == 3) spawnTime -= 0.12f;
 
-        if (spawnTime <= 1) spawnTime = 1;
+        if (spawnTime <= 2) spawnTime = 2;
     }
 
 }

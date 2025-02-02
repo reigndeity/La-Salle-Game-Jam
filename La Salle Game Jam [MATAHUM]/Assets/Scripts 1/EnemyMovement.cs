@@ -8,6 +8,7 @@ public class EnemyMovement : MonoBehaviour
     public float speed;
     public float currentSpeed;
     public bool isAngry;
+    private bool isOrderCompleted;
     public float angrySpeed = 1.5f;
     public GameObject target;
     public Animator _animator;
@@ -28,7 +29,7 @@ public class EnemyMovement : MonoBehaviour
     {
         if (target != null)
         {
-            if (GameManager.Instance.isGameStart == true)
+            if (GameManager.Instance.isGameStart == true && !isOrderCompleted)
             {
                 Vector3 direction = (target.transform.position - transform.position).normalized;
                 transform.Translate(direction * speed * Time.deltaTime, Space.World);
@@ -67,6 +68,7 @@ public class EnemyMovement : MonoBehaviour
         AudioManager.instance.FinishedOrder();
         _capsuleCollider.enabled = false;
         _enemyStats.ingr_PopUp.SetActive(false);
+        isOrderCompleted = true;
         speed = 0;
         _animator.SetInteger("animState", 2);
         Invoke("PoofMyself", 2.01f);

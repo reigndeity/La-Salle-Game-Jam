@@ -51,9 +51,9 @@ public class EnemyStats : MonoBehaviour
 
     public void Die()
     {
-        if(Spawner.instance.difficultyLevel == 1) GameManager.Instance.points+=25;
-        else if (Spawner.instance.difficultyLevel == 2) GameManager.Instance.points+=50;
-        else if (Spawner.instance.difficultyLevel == 3) GameManager.Instance.points+=100;
+        if(Spawner.instance.difficultyLevel == 1) GameManager.Instance.points+=15;
+        else if (Spawner.instance.difficultyLevel == 2) GameManager.Instance.points+=35;
+        else if (Spawner.instance.difficultyLevel == 3) GameManager.Instance.points+=65;
         GameManager.Instance.timer += 4f;
         GameManager.Instance.ordersCompletedScore++;
         _enemyMovement.Catch();
