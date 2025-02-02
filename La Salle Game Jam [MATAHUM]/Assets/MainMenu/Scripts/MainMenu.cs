@@ -1,4 +1,7 @@
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.EventSystems;
+using TMPro;
 
 public class MainMenu : MonoBehaviour
 {
@@ -22,6 +25,7 @@ public class MainMenu : MonoBehaviour
         exitCollider.enabled = true;
         Time.timeScale = 1;
         Cursor.visible = true;
+
     }
 
     void Update()

@@ -1010,6 +1010,7 @@ GameObject:
   - component: {fileID: 682739418}
   - component: {fileID: 682739421}
   - component: {fileID: 682739422}
+  - component: {fileID: 682739423}
   m_Layer: 7
   m_Name: Exit
   m_TagString: Untagged
@@ -1039,8 +1040,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: EXIT
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 019d2c5c2c93900468a4790f7207c05e, type: 2}
-  m_sharedMaterial: {fileID: -3978483594004030188, guid: 019d2c5c2c93900468a4790f7207c05e,
+  m_fontAsset: {fileID: 11400000, guid: 425b44ff046520443b6ed7527033bd9d, type: 2}
+  m_sharedMaterial: {fileID: -3978483594004030188, guid: 425b44ff046520443b6ed7527033bd9d,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -1130,7 +1131,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -3978483594004030188, guid: 019d2c5c2c93900468a4790f7207c05e, type: 2}
+  - {fileID: -3978483594004030188, guid: 425b44ff046520443b6ed7527033bd9d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1213,6 +1214,22 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &682739423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 682739416}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54bacb038b3d6b4408949ebae88db7bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultMaterial: {fileID: -3978483594004030188, guid: 425b44ff046520443b6ed7527033bd9d,
+    type: 2}
+  outlineMaterial: {fileID: -3978483594004030188, guid: 7ac883e9b5a274b419ed73b959ec6775,
+    type: 2}
 --- !u!1 &842752231
 GameObject:
   m_ObjectHideFlags: 0
@@ -2441,7 +2458,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1852031469
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2684,6 +2701,7 @@ GameObject:
   - component: {fileID: 2073135477}
   - component: {fileID: 2073135480}
   - component: {fileID: 2073135481}
+  - component: {fileID: 2073135482}
   m_Layer: 6
   m_Name: Play
   m_TagString: Untagged
@@ -2713,8 +2731,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: PLAY
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 019d2c5c2c93900468a4790f7207c05e, type: 2}
-  m_sharedMaterial: {fileID: -3978483594004030188, guid: 019d2c5c2c93900468a4790f7207c05e,
+  m_fontAsset: {fileID: 11400000, guid: 425b44ff046520443b6ed7527033bd9d, type: 2}
+  m_sharedMaterial: {fileID: -3978483594004030188, guid: 425b44ff046520443b6ed7527033bd9d,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -2804,7 +2822,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -3978483594004030188, guid: 019d2c5c2c93900468a4790f7207c05e, type: 2}
+  - {fileID: -3978483594004030188, guid: 425b44ff046520443b6ed7527033bd9d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2887,6 +2905,22 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &2073135482
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2073135476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54bacb038b3d6b4408949ebae88db7bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultMaterial: {fileID: -3978483594004030188, guid: 425b44ff046520443b6ed7527033bd9d,
+    type: 2}
+  outlineMaterial: {fileID: -3978483594004030188, guid: 7ac883e9b5a274b419ed73b959ec6775,
+    type: 2}
 --- !u!4 &205954371454859323
 Transform:
   m_ObjectHideFlags: 0
